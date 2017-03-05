@@ -15,17 +15,21 @@
 }
 
 #track1{
-  background: grey;
+  background: #2E0854;
 
 }
 
 #track2{
-  background: #4682b4;
+  background: #2E0854;
+  border-top: dotted yellow;
 
 }
 
 h1{
   text-align: center;
+  font-family: artDecoFont;
+  color: yellow;
+  font-size: 500%;
 }
 
 .winner {
@@ -33,5 +37,17 @@ h1{
 }
 #button{
   float: right;
-  margin-right: 20px; 
+  margin-right: 20px;
+  color: yellow;
+  background-color: #2E0854;
+}
+
+body {
+  background-image: url("giphy.gif");
+}
+
+@font-face {
+    font-family: artDecoFont;
+    src: url("GrenadierNF.otf");
+    src: url("GrenadierNF.ttf");
 }
