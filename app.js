@@ -3,10 +3,15 @@ function Player(name, key, image) {
     this.name = name;
     this.key = key;
     this.image = image;
+    this.score = 0;
 }
 
-var player1 = new Player("Player 1", 39, "#img1");
-var player2 = new Player("Player 2", 32, "#img2");
+var player1 = new Player("Batman", 39, "#img1");
+var player2 = new Player("Cops", 32, "#img2");
+
+var players = [];
+players.push(player1, player2);
+
 var winningScore = 21;
 
 $(document).ready(function() {
@@ -27,33 +32,33 @@ $(document).ready(function() {
 
         function checkWin(player) {
             if (player.counter === winningScore) {
-                $('.winner').append(player.name + ' has won the game!');
                 hasWon = true;
+                player.score++;
+                $('.winner').append(player.name + ' has won the game!<br>Total wins for ' +
+                    player.name + ' = ' + player.score);
             }
         }
 
         if (!hasWon) {
-            if (e.which === player1.key) {
-                moveCar(player1);
-                checkWin(player1);
-            }
-            if (e.which === player2.key) {
-                moveCar(player2);
-                checkWin(player2);
+
+            for (var i = 0; i < players.length; i++) {
+                if (e.which === players[i].key) {
+                    moveCar(players[i]);
+                    checkWin(players[i]);
+                }
             }
         }
     }); // end keydown
 
     $('#button').click(function() {
-        $(player1.image).css({
-            'margin-left': '0'
-        });
-        $(player2.image).css({
-            'margin-left': '0'
-        });
-        player1.counter = 0;
-        player2.counter = 0;
         hasWon = false;
         $('.winner').text('');
+
+        for (var i = 0; i < players.length; i++) {
+            $(players[i].image).css({
+                'margin-left': '0'
+            });
+            players[i].counter = 0;
+        }
     });
 }); // end document ready
