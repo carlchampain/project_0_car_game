@@ -33,7 +33,10 @@ h1{
 }
 
 .winner {
-  text-shadow: 2px 2px #FF0000;
+  text-shadow: 2px 2px yellow;
+  font-family: artDecoFont;
+  text-align: center;
+  font-size: 400%;
 }
 #button{
   float: right;

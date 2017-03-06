@@ -17,7 +17,7 @@ $(document).ready(function() {
             if (player1 < 21 && !hasWon) {
 
                 if (e.which === 39) {
-                    // when a key is pressed, add an increment to a counter, and pass into the css method below AND use that counter to track if win
+
                     $('#img1').css({
                         'margin-left': '+=50'
                     });
@@ -47,17 +47,8 @@ $(document).ready(function() {
 
     }); // end keydown
 
-     $('#button').click(function(){
-       window.location.reload();
-     });
+    $('#button').click(function() {
+        window.location.reload();
+    });
 
 }); // end document ready
-
-
-
-
-
-
-//prompt user for their name
-// countdown timer at the start
-//display message halfway ('ALmost there')
