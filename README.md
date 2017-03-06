@@ -1,6 +1,6 @@
-#Personal website
+#Gotham City Racing Car Gane
 
-This is my personal website page. *it is only the start, there will be a lot of improvments overtime.*
+This is a simple racing car game. *There will be some improvments overtime.*
 
 ##Contributing
 
@@ -9,5 +9,5 @@ This is my personal website page. *it is only the start, there will be a lot of 
 
 ##History
 
-I started this website as one of my first projects at **General Assembly**.
+This game was one of the deliverables in week 2 at **General Assembly**.
 I hope you'll like it!
