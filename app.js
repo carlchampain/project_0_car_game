@@ -1,6 +1,13 @@
-var player1 = 0;
-var player2 = 0;
+function Player(name, key, image) {
+    this.counter = 0;
+    this.name = name;
+    this.key = key;
+    this.image = image;
+}
 
+var player1 = new Player("Player 1", 39, "#img1");
+var player2 = new Player("Player 2", 32, "#img2");
+var winningScore = 21;
 
 $(document).ready(function() {
 
@@ -10,45 +17,43 @@ $(document).ready(function() {
 
     $('body').keydown(function(e) {
         e.preventDefault();
-        console.log('you pressed a key');
 
-        if (!hasWon) {
+        function moveCar(player) {
+            $(player.image).css({
+                'margin-left': '+=50'
+            });
+            player.counter++;
+        }
 
-            if (player1 < 21 && !hasWon) {
-
-                if (e.which === 39) {
-
-                    $('#img1').css({
-                        'margin-left': '+=50'
-                    });
-                    player1++;
-                }
-            }
-
-            if (player2 < 21 && !hasWon) {
-
-                if (e.which === 32) {
-                    $('#img2').css({
-                        'margin-left': '+=50'
-                    });
-                    player2++;
-                }
-            }
-
-            if (player1 === 21) {
-                $('.winner').append('Player 1 has won the game!');
-                hasWon = true;
-            }
-            if (player2 === 21) {
-                $('.winner').append('Player 2 has won the game!');
+        function checkWin(player) {
+            if (player.counter === winningScore) {
+                $('.winner').append(player.name + ' has won the game!');
                 hasWon = true;
             }
         }
 
+        if (!hasWon) {
+            if (e.which === player1.key) {
+                moveCar(player1);
+                checkWin(player1);
+            }
+            if (e.which === player2.key) {
+                moveCar(player2);
+                checkWin(player2);
+            }
+        }
     }); // end keydown
 
     $('#button').click(function() {
-        window.location.reload();
+        $(player1.image).css({
+            'margin-left': '0'
+        });
+        $(player2.image).css({
+            'margin-left': '0'
+        });
+        player1.counter = 0;
+        player2.counter = 0;
+        hasWon = false;
+        $('.winner').text('');
     });
-
 }); // end document ready

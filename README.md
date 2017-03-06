@@ -1,4 +1,4 @@
-#Gotham City Racing Car Gane
+#Gotham City Racing Car Game
 
 This is a simple racing car game. *There will be some improvments overtime.*
 
